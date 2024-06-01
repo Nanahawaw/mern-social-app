@@ -1,7 +1,11 @@
 const express = require("express");
+const postRouter = require("./routes/Posts");
 
 const app = express();
 const db = require("./models");
+
+//routes
+app.use("/posts", postRouter);
 
 db.sequelize.sync().then(() => {
   app.listen(3000, () => {
